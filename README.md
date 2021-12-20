@@ -15,16 +15,19 @@
   * 将文件夹中的CMAKElist.txt拖入CMAKE界面，点击Configure，编译器选择vs2015，平台选择X64
   * Configure完成->Generate->Open Project，选择vs2015
   * 在vs2015打开后即可编译生成可执行文件，位置在\cmake输出目录\bin\Debug
+  * 运行结果如图<br>
+  ![](https://github.com/shijiu9/shijiu9/blob/main/sample.jpg)
 * Phong光照模型
   * 代码在OptiXPhong.rar中，下载解压后用vs2015打开
   * 配置工程环境：
     * 菜单->项目->属性，配置->VC++目录->包含目录中添加CUDA和OPTIX的包含目录
-    * 链接器->输入->附加依赖项,添加
-      C:\ProgramData\NVIDIA Corporation\OptiX SDK 6.0.0\lib64\optix.6.0.0.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 6.0.0\SDK\support\freeglut\win64\Release\freeglut.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\lib\x64\nvrtc.lib;
+    * 链接器->输入->附加依赖项,添加<br>
+      C:\ProgramData\NVIDIA Corporation\OptiX SDK 6.0.0\lib64\optix.6.0.0.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 6.0.0\SDK\support\freeglut\win64\Release\freeglut.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\lib\x64\nvrtc.lib ; 
     * 编译环境修改为X64
   * 原理：
   phong光照效果=全局光+方向光源的漫反射+方向光源的镜面反射<br>
-  * 代码在OptiX中构建了一个球，并实现Phong光照，效果如图：
+  * 代码在OptiX中构建了一个球，并实现Phong光照，效果如图：<br>
+    ![](https://github.com/shijiu9/shijiu9/blob/main/phong.jpg)
 * 基于微表面模型的路径追踪
   * 代码在OptixPathtracing.rar中，下载解压后用vs2015打开
   * 配置工程环境：同上
@@ -37,7 +40,9 @@
     * 代码中所用模型<br>
     代码参考自https://freesouth.blog.csdn.net/article/details/91511970 <br>
     使用了基于随机微平面的理论，我们认为光线击到任何一处，它的反射方向是随机的，因为这一处可以划分为无穷小，现实世界的某一点也是吸收了几乎可以认为是随机方向的各种光的反射效果<br>
+    在代码中的体现为：反射光线完全由随机函数生成
     运行结果如图：<br>
+    ![](https://github.com/shijiu9/shijiu9/blob/main/micro.jpg)<br>
     尝试过把模型修改为Cook Torrance模型，但失败
     
     
